@@ -1,0 +1,52 @@
+<!-- <div class="container">
+    <form action="" [formGroup]="form" novalidate class="form__wrapper" (ngSubmit)="search()">
+      <div class="form__group">                
+          <label for="query">Username</label>
+          <div class="select-wrapper">
+            <input type="text" tabindex="1" id="query" placeholder="John doe" class="input__field" formControlName="query">
+            <select class="select">
+                <option value="value1">Fruits</option>
+                <option value="value1">Mango</option>
+                <option value="value2">Banana</option>
+                <option value="value3">Cherries</option>
+              </select>
+          </div>
+      </div>
+    </form>
+  </div> -->
+
+
+  <div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Github Searcher</h2>
+        <h2>Search Users or Repositories below</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <form action="" [formGroup]="form" novalidate >
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field"> 
+                  <input type="text" name="name" placeholder="Search" formControlName="query" (keyup) = "search()"/>
+                </div>
+              </div>
+              <div class="col_half">
+                 <div class="input_field select_option">
+                  <select #mySelect formControlName="api" (change)="onChangeApi(mySelect.value)">
+                    <option value="user">Users</option>
+                    <option value="repository">Repositories</option>
+                  </select>
+                  <div class="select_arrow"></div>
+                </div>
+              </div>
+            </div>
+               
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

@@ -1,0 +1,43 @@
+<div class="container container--contrast"></div>
+<div class="container" role="main">
+  <div class="container__wrapper">
+  <div class="form__wrapper">
+    <app-search-form
+    [query]="(query$ | async)"
+    (updateSearchQuery)="updateSearch($event)"
+    >
+    </app-search-form>
+  </div>
+
+  <div class="result">
+    <app-user-list 
+    *ngIf = "modifier === 'user'"
+    [query]="(query$ | async)"
+    [results]="(results$ | async)"
+    [isLoading]="(isLoading$ | async)"
+    [error]="(error$ |async)">
+    </app-user-list>
+    <app-repo-list 
+    *ngIf = "modifier === 'repository'"
+    [query]="(query$ | async)"
+    [results]="(resultsRepo$ | async)"
+    [isLoading]="(isLoading$ | async)"
+    [error]="(error$ |async)">
+    </app-repo-list>
+
+    <div class="loading" *ngIf="isLoading$ | async">
+      <div class="fancy-spinner">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+
+    <div class="form_wrapper" *ngIf="!(isLoading$ | async) && !(isLoaded$ | async) && !(error$ | async)" class="placeholder">
+      <h2>Search for a github user or repo...</h2>    
+      <img src="../assets/hiker-man-monochrome.svg" width="300" title="Search for user" alt="Search for user">
+  </div>
+  </div>
+
+</div>
+</div>

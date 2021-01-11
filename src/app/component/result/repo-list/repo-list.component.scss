@@ -1,0 +1,41 @@
+$dark-colour: #353535;
+$bright-colour: #457080;
+$light-grey: #eee;
+$header-font: Arial, Helvetica, sans-serif;
+//for breakpoints
+$small: 768px;
+$max-width: 1120px;
+
+@mixin cardStyle($font-color, $border-width, $border-color, $background) {
+  color: $font-color;
+  background-color: $background;
+  border: $border-width, $border-color, solid;
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.col {
+  @media screen and (min-width: $small)   {
+    width: 33%;
+  }
+
+  @media screen and (max-width: $small)   {
+    width: 50%;
+  }
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  @include cardStyle($dark-colour, 2px,   $bright-colour , $light-grey);
+}
+
